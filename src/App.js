@@ -1,24 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+
+// 페이지 라우팅을 위한 어쩌구
+import { Route } from "react-router-dom";
+
+import Main from "./page/Main";
+
+import Regist from "./page/booking/Regist";
+import List from "./page/booking/List";
+import Detail from "./page/booking/Detail";
 
 function App() {
   return (
+    // /는 파라메터라고 함. 파라메터를 추출한다^ㅇ^
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Route path="/" component={Main} exact={true} />
+      <Route path="/booking/regist/" component={Regist} />
+      <Route path="/booking/list" component={List} />
+      <Route path="/booking/detail/:id" component={Detail} />
     </div>
   );
 }
